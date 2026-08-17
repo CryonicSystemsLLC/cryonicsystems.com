@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cryonic MES — Manufacturing Execution System | Cryonic Systems</title>
-<meta name="description" content="Cryonic MES delivers live line visibility, OEE that isolates the problem, and serial-level genealogy. Built by a systems analyst who runs three MES platforms daily in an automotive plant.">
+<title>Cryonic MES — Product | Cryonic Systems</title>
+<meta name="description" content="Cryonic MES: operator UI, real-time visibility, self-service configuration, long-term maintainability, station-level OEE and serial genealogy for automotive suppliers and discrete manufacturers.">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -227,125 +227,149 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif}
 <nav class="nav">
   <a href="index.html" class="brand"><img src="logo.png" alt=""><b>Cryonic Systems</b></a>
   <button class="burger" aria-label="Toggle menu" aria-expanded="false" onclick="var n=document.getElementById('nl');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))"><span></span><span></span><span></span></button>
-  <ul class="navlinks" id="nl"><li><a href="mes.html">Cryonic MES</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html" class="navcta">Request a demo</a></li></ul>
+  <ul class="navlinks" id="nl"><li><a href="mes.html" aria-current="page">Cryonic MES</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html" class="navcta">Request a demo</a></li></ul>
 </nav>
 <div class="andon" aria-hidden="true"><i></i><i></i><i class="run live"></i><i></i><i></i><i></i><i></i><i class="run"></i><i></i><i></i><i></i><i class="warn"></i><i class="warn live"></i><i></i><i></i><i></i><i></i><i></i><i class="run"></i><i></i><i></i><i></i><i></i><i class="down"></i><i></i><i></i><i></i><i class="run live"></i><i></i><i></i></div>
 
 <main class="top">
 
-<section class="wrap">
-  <div class="hero">
-    <div>
-      <p class="eyebrow">Manufacturing Execution System</p>
-      <h1 class="h1">Every part.<br>Every station.<br>Every second.</h1>
-      <p class="hero-sub">Cryonic MES gives you live line visibility, OEE that points straight at the problem, and part-level genealogy you can actually follow during a containment. <b>Built by a systems analyst who runs three MES platforms every day on an automotive plant floor.</b></p>
-      <div class="btns">
-        <a href="contact.html" class="btn btn--go">Request a demo</a>
-        <a href="mes.html" class="btn btn--ghost">See how it works</a>
-      </div>
-    </div>
+<section class="band wrap">
+  <p class="eyebrow">Cryonic MES</p>
+  <h1 class="h1" style="max-width:16ch">Manufacturing execution, built on the floor.</h1>
+  <p class="lede">A complete MES for batch and sequence production — receiving through shipping, with the visibility, OEE and traceability that most systems treat as an afterthought. Deployed inside your network, on hardware you control.</p>
+  <div class="btns"><a href="contact.html" class="btn btn--go">Request a demo</a></div>
+</section>
 
-    <div class="hmi" aria-label="Example line status readout">
-      <div class="hmi-bar">
-        <span class="hmi-id">Line 03 &middot; Body Weld</span>
-        <span class="hmi-state"><i class="led"></i>Running</span>
-      </div>
-      <dl class="hmi-grid">
-        <div class="cell"><dt>Overall OEE</dt><dd id="k-oee">87.4<small>%</small></dd></div>
-        <div class="cell"><dt>Count / Target</dt><dd id="k-cnt">1,284<small> / 1,400</small></dd></div>
-        <div class="cell"><dt>Cycle time</dt><dd id="k-cyc">41.2<small>s</small></dd></div>
-        <div class="cell"><dt>Last serial</dt><dd class="mono" id="k-ser">PRT000418327</dd></div>
-      </dl>
-      <div class="hmi-stations">
-        <div class="st"><span>OP10</span><i></i></div>
-        <div class="st"><span>OP20</span><i></i></div>
-        <div class="st"><span>OP30</span><i class="w"></i></div>
-        <div class="st"><span>OP40</span><i></i></div>
-        <div class="st"><span>OP50</span><i></i></div>
-        <div class="st"><span>OP60</span><i class="o"></i></div>
-      </div>
+<section class="band band--panel band--tight rv">
+  <div class="wrap">
+    <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-overview.png" alt="Cryonic MES plant overview dashboard"><figcaption>Plant overview &middot; system status, active lines, OEE, quality rate, downtime and scrap</figcaption></figure>
+  </div>
+</section>
+
+<section class="band wrap rv">
+  <div class="split">
+    <div>
+      <p class="eyebrow">01 &middot; Operator UI</p>
+      <h2 class="h2">The screen an operator uses ten hours a day.</h2>
+      <p class="lede">Most MES operator screens were designed around the database, not the person standing at the station. Cryonic MES starts from the other end: what does this operator need to see, and what is the single next thing they need to do?</p>
+      <ul class="checks">
+        <li><b>Plain language.</b> Station state reads "Not Ready — part not loaded," not an error code that needs a lookup table.</li>
+        <li><b>Large, unambiguous targets.</b> Designed for gloves, glare and a scanner in one hand.</li>
+        <li><b>One obvious action.</b> The primary control is the biggest thing on the screen and it never moves.</li>
+        <li><b>Consistent everywhere.</b> Receiving, packaging and shipping share the same layout logic, so training carries across stations.</li>
+      </ul>
+    </div>
+    <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-main.png" alt="Cryonic MES production operator screen" loading="lazy"><figcaption>Production &middot; station, line, part and live count in one view</figcaption></figure>
+  </div>
+</section>
+
+<section class="band band--panel rv">
+  <div class="wrap">
+    <p class="eyebrow">02 &middot; Real-time visibility</p>
+    <h2 class="h2">Live means live.</h2>
+    <p class="lede">Cryonic MES connects to the equipment layer over OPC and pushes changes straight to every open screen. There is no refresh button because there is nothing to refresh.</p>
+    <div class="pillars">
+      <div class="pillar"><span class="pillar-n">On the floor</span><h3 class="h3">Station state as it happens</h3><p>Cycle complete, part loaded, machine ready, fault raised. The operator screen reflects the equipment, not a poll from ninety seconds ago.</p></div>
+      <div class="pillar"><span class="pillar-n">In the office</span><h3 class="h3">Same data, same second</h3><p>Plant overview shows active lines, hourly output, downtime and scrap while the shift is still running — not in tomorrow morning's report.</p></div>
+      <div class="pillar"><span class="pillar-n">When it breaks</span><h3 class="h3">Alarms with context</h3><p>Active alarms carry the line, the station and the duration, so the response starts with a location instead of a phone call.</p></div>
     </div>
   </div>
 </section>
 
-<section class="creds">
-  <div class="cred"><b>3</b><span>MES platforms run daily</span></div>
-  <div class="cred"><b>10+</b><span>Years in plant IT and OT</span></div>
-  <div class="cred"><b>Every shift</b><span>Real production floor context</span></div>
-  <div class="cred"><b>Michigan</b><span>Built and supported here</span></div>
-</section>
-
 <section class="band wrap rv">
-  <div class="split split--wide">
+  <div class="split">
     <div>
-      <p class="eyebrow">Why it exists</p>
-      <h2 class="h2">Written down after years of working around the gaps.</h2>
+      <p class="eyebrow">03 &middot; OEE</p>
+      <h2 class="h2">An OEE number you can act on.</h2>
+      <p class="lede">A single plant-wide OEE percentage tells you almost nothing. Cryonic MES breaks availability, performance and quality out by line and by station, and attaches downtime reasons to the losses, so the number resolves to a place and a cause.</p>
+      <ul class="checks">
+        <li><b>Split by station.</b> A bottleneck at OP30 doesn't get diluted by five healthy stations upstream.</li>
+        <li><b>Downtime with reasons.</b> Lock-in and downtime tracking capture why the line stopped, not just that it did.</li>
+        <li><b>First-pass yield in the same view.</b> Quality loss sits next to availability loss, so you can see which one is actually costing you.</li>
+        <li><b>Comparable across lines.</b> Same calculation everywhere, so line-to-line comparison means something.</li>
+      </ul>
     </div>
-    <div class="founder">
-      <p>I run three different MES platforms every day in an automotive plant. Each one does something well and something badly, and after enough years you stop wondering why nobody fixed it and start keeping a list.</p>
-      <p>Cryonic MES is that list. Clean operator screens, because I've watched good people fight bad ones. Real-time visibility, because "refresh to update" is not visibility. OEE that isolates a problem instead of averaging it away. Genealogy that holds up during an actual containment.</p>
-      <p>It's built for the plant I work in — which means it's built for yours.</p>
-      <p class="sig">Founder &middot; Cryonic Systems &middot; Michigan</p>
+    <div>
+      <p class="eyebrow">04 &middot; Genealogy</p>
+      <h2 class="h2">Traceability that survives a containment.</h2>
+      <p class="lede">Every part gets a unique serial the moment it exists, and that serial carries its material, its station history, its container and its shipment. When a customer calls with a suspect part, you work forward and backward from one number.</p>
+      <ul class="checks">
+        <li><b>Serial-level, not lot-level.</b> Containment scopes to the parts actually affected instead of the whole day's build.</li>
+        <li><b>Material consumption recorded.</b> FIFO consumption and BOM backflush tie raw material to finished parts.</li>
+        <li><b>Container and shipment linked.</b> Parts stay associated with the container they went into and the truck it left on.</li>
+        <li><b>Scrap and rework tracked.</b> Scrapped parts keep their history, and rework restores status without losing the record.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="band band--panel rv">
   <div class="wrap">
-    <p class="eyebrow">What's different</p>
-    <h2 class="h2">Six things we refused to ship badly.</h2>
+    <p class="eyebrow">05 &middot; Configuration &amp; 06 &middot; Maintainability</p>
+    <h2 class="h2">Set it up yourself. Keep it running for a decade.</h2>
+    <p class="lede">The real cost of an MES isn't the license. It's the years afterward, when adding a part number requires a vendor ticket and nobody left in the building understands the interfaces.</p>
     <div class="pillars">
-      <div class="pillar"><span class="pillar-n">01 &middot; Operator UI</span><h3 class="h3">A screen operators run without a manual</h3><p>Big targets, plain language, one obvious next action. Fewer mis-scans, fewer calls to the office, less lost time at shift change.</p></div>
-      <div class="pillar"><span class="pillar-n">02 &middot; Visibility</span><h3 class="h3">Live, not last-refreshed</h3><p>Counts, states and faults push to the screen as they happen. When a station drops, the floor and the office see it in the same moment.</p></div>
-      <div class="pillar"><span class="pillar-n">03 &middot; Configuration</span><h3 class="h3">Setup you can do yourself</h3><p>Parts, lines, stations, BOMs and print queues are configured in the UI. No vendor ticket and no three-week lead time to add a part number.</p></div>
-      <div class="pillar"><span class="pillar-n">04 &middot; Maintainability</span><h3 class="h3">Still maintainable in year five</h3><p>Clear structure, readable data, documented interfaces. The engineer who inherits this can work out what it does without a support contract.</p></div>
-      <div class="pillar"><span class="pillar-n">05 &middot; OEE</span><h3 class="h3">OEE that points at the problem</h3><p>Availability, performance and quality split by line and by station, with downtime reasons attached. The number tells you where to walk.</p></div>
-      <div class="pillar"><span class="pillar-n">06 &middot; Genealogy</span><h3 class="h3">Trace any part back to its material</h3><p>Serial-level genealogy from receiving through shipping. Containment starts with a serial number instead of a spreadsheet and a guess.</p></div>
+      <div class="pillar"><span class="pillar-n">Setup</span><h3 class="h3">Configured in the UI</h3><p>Work centers, production lines, packout stations, parts, BOMs, production stages, OPC tags and print queues are all set up through the configuration dashboards.</p></div>
+      <div class="pillar"><span class="pillar-n">Change</span><h3 class="h3">New part, same afternoon</h3><p>Adding a part number, a stage or a label template is a task your own engineer does. No change order, no lead time, no per-change invoice.</p></div>
+      <div class="pillar"><span class="pillar-n">Longevity</span><h3 class="h3">Legible in year five</h3><p>Predictable data structures, documented machine interfaces and handshakes, and a clean separation between production control and business operations.</p></div>
+    </div>
+    <div class="shots2">
+      <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-edi.png" alt="Cryonic MES order intake and EDI processing" loading="lazy"><figcaption>Order intake &middot; customer EDI processing and status</figcaption></figure>
+      <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-main.png" alt="Cryonic MES production screen" loading="lazy"><figcaption>Production &middot; manual and automatic cycle control</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="band wrap rv">
   <p class="eyebrow">Material flow</p>
-  <h2 class="h2">One system, door to door.</h2>
-  <p class="lede">Material moves in one direction through the plant. Cryonic MES follows it the whole way, so the trail is unbroken by the time a part reaches the customer.</p>
+  <h2 class="h2">Door to door, in order.</h2>
   <div class="flow">
-    <div class="step"><h3 class="h3">Receive</h3><p>Inbound material is received against the order and put away to a warehouse location. Lot and container identity is captured at the door.</p></div>
-    <div class="step"><h3 class="h3">Produce</h3><p>Stations report cycles, states and faults in real time. Material is consumed against the BOM and every part gets a serial the moment it exists.</p></div>
-    <div class="step"><h3 class="h3">Package</h3><p>Operators scan serials into containers. Containers close on count, print their own labels, and stay linked to the parts inside them.</p></div>
-    <div class="step"><h3 class="h3">Ship</h3><p>Containers load to a truck bay and the shipper is generated, carrying the same serial trail all the way to the customer.</p></div>
+    <div class="step"><h3 class="h3">Receive</h3><p>Material received against the order, put away to a warehouse location, and made available to consume.</p></div>
+    <div class="step"><h3 class="h3">Produce</h3><p>Cycles and faults captured live, material consumed against the BOM, serial assigned at creation.</p></div>
+    <div class="step"><h3 class="h3">Package</h3><p>Serials scanned into containers, auto-close on count, labels printed from templates.</p></div>
+    <div class="step"><h3 class="h3">Ship</h3><p>Containers loaded to a truck bay, shipping documents generated, advance ship notice sent.</p></div>
   </div>
 </section>
 
 <section class="band band--panel rv">
   <div class="wrap">
-    <p class="eyebrow">On screen</p>
-    <h2 class="h2">Built to be read at a glance.</h2>
-    <div class="shots2">
-      <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-overview.png" alt="Cryonic MES plant overview dashboard" loading="lazy"><figcaption>Plant overview &middot; live status and performance</figcaption></figure>
-      <figure class="shot" onclick="zoom(this)"><img src="software/cryonic-main.png" alt="Cryonic MES production station screen" loading="lazy"><figcaption>Production &middot; operator station screen</figcaption></figure>
-    </div>
-    <div class="btns"><a href="mes.html" class="btn btn--ghost">Full product breakdown</a></div>
+    <p class="eyebrow">Scope</p>
+    <h2 class="h2">What's covered.</h2>
+    <table class="spec">
+      <tr><th>Area</th><th>Included</th></tr>
+      <tr><td>Production</td><td>Live station monitoring, sequence and batch work orders, manual and automatic cycle control, job start / pause / resume / complete</td></tr>
+      <tr><td>Materials</td><td>Receiving, warehouse locations, FIFO consumption, BOM backflush, material planning and reservation</td></tr>
+      <tr><td>Packaging</td><td>Serial scanning, container management, auto-close on count, packout station configuration</td></tr>
+      <tr><td>Shipping</td><td>Truck bay management, container loading, shipping document generation</td></tr>
+      <tr><td>Quality</td><td>Inspection management, scrap recording with reasons, rework and restoration, first-pass yield</td></tr>
+      <tr><td>OEE &amp; reporting</td><td>Availability, performance and quality by line and station, downtime and lock-in tracking, PDF and Excel export</td></tr>
+      <tr><td>Labeling</td><td>Template-driven label printing for Zebra and Intermec printers, warehouse location barcodes</td></tr>
+      <tr><td>Customer EDI</td><td>Planning schedules, purchase orders and changes, shipping schedules, production sequence releases, warehouse orders</td></tr>
+      <tr><td>ERP</td><td>Advance ship notice output to SAP</td></tr>
+      <tr><td>Access control</td><td>Users, roles and security groups with permissions down to the dashboard level</td></tr>
+      <tr><td>Deployment</td><td>On-premise, Windows or Linux, inside your network. No cloud dependency.</td></tr>
+    </table>
   </div>
 </section>
 
-<section class="band wrap rv">
+<section class="band wrap rv" id="axiom">
   <div class="second">
     <div>
-      <span class="tag">Also from Cryonic Systems</span>
+      <span class="tag">Secondary product</span>
       <h2 class="h2" style="font-size:1.9rem">Axiom</h2>
-      <p class="note" style="margin-top:.9rem">Operational analytics for teams that have outgrown dashboards. Axiom maps the relationships between customers, orders, products and events, then surfaces the anomalies worth acting on. Self-hosted, so the data stays inside your network.</p>
-      <div class="btns" style="margin-top:1.4rem"><a href="mes.html#axiom" class="btn btn--ghost">About Axiom</a></div>
+      <p class="note" style="margin-top:.9rem">Axiom is our operational analytics platform, for teams whose questions have outgrown a dashboard. It maps the relationships between customers, orders, products and events, scores risk, and flags the anomalies worth acting on — then lets you act from the same screen.</p>
+      <p class="note" style="margin-top:.8rem">Self-hosted on your cloud, on-premise or an air-gapped network. Available alongside Cryonic MES or on its own.</p>
+      <div class="btns" style="margin-top:1.4rem"><a href="contact.html" class="btn btn--ghost">Ask about Axiom</a></div>
     </div>
-    <figure class="shot" onclick="zoom(this)"><img src="software/axiom-main.png" alt="Axiom operational analytics dashboard" loading="lazy"></figure>
+    <figure class="shot" onclick="zoom(this)"><img src="software/axiom-main.png" alt="Axiom operational analytics dashboard" loading="lazy"><figcaption>Axiom &middot; operational dashboard</figcaption></figure>
   </div>
 </section>
 
 <section class="cta wrap rv">
   <p class="eyebrow" style="justify-content:center">Get started</p>
-  <h2 class="h2">Show us your line. We'll show you ours.</h2>
-  <p class="lede">A demo is a working system, not a slide deck. Bring a real part number and a real problem and we'll walk it through end to end.</p>
-  <div class="btns"><a href="contact.html" class="btn btn--go">Request a demo</a><a href="about.html" class="btn btn--ghost">Read the background</a></div>
+  <h2 class="h2">Bring a real part number.</h2>
+  <p class="lede">We'll run it through receiving, production, packaging and shipping on a live system so you can judge it on the work, not the pitch.</p>
+  <div class="btns"><a href="contact.html" class="btn btn--go">Request a demo</a></div>
 </section>
 
 </main>
@@ -366,22 +390,10 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif}
   <small>&copy; 2026 Cryonic Systems LLC. All rights reserved.</small>
 </div></footer>
 <div class="lb" id="lb" onclick="this.classList.remove('on')"><img src="" alt="" id="lbi"></div>
-<script>
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08,rootMargin:'0px 0px -60px 0px'});
+<script>var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 function zoom(fig){var i=fig.querySelector('img'),lb=document.getElementById('lb');if(!lb)return;document.getElementById('lbi').src=i.src;document.getElementById('lbi').alt=i.alt||'';lb.classList.add('on');}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=document.getElementById('lb');if(lb)lb.classList.remove('on');}});
-document.querySelectorAll('.navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open')})});
-var oee=87.4,cyc=41.2,cnt=1284,ser=418327;
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setInterval(function(){
- oee=Math.min(92,Math.max(83,oee+(Math.random()-.5)*.5));
- cyc=Math.min(43,Math.max(39.5,cyc+(Math.random()-.5)*.4));
- if(Math.random()>.45){cnt++;ser++;}
- document.getElementById('k-oee').innerHTML=oee.toFixed(1)+'<small>%</small>';
- document.getElementById('k-cyc').innerHTML=cyc.toFixed(1)+'<small>s</small>';
- document.getElementById('k-cnt').innerHTML=cnt.toLocaleString()+'<small> / 1,400</small>';
- document.getElementById('k-ser').textContent='PRT000'+ser;
-},2600);}
-</script>
+document.querySelectorAll('.navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open')})});</script>
 </body>
 </html>
