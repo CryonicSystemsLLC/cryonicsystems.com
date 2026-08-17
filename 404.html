@@ -3,30 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://cryonicsystems.com/about.html">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="robots" content="noindex, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cryonic Systems">
 <meta property="og:locale" content="en_US">
-<meta property="og:url" content="https://cryonicsystems.com/about.html">
-<meta property="og:title" content="About Cryonic Systems | MES Software, Michigan">
-<meta property="og:description" content="Cryonic Systems builds manufacturing execution and operational intelligence software for industrial manufacturers. Based in Michigan, deployed on-premise.">
+<meta property="og:url" content="https://cryonicsystems.com/">
+<meta property="og:title" content="Cryonic MES — Manufacturing Execution System Software">
+<meta property="og:description" content="Manufacturing execution software for industrial manufacturers. Real-time line visibility, station-level OEE and serial traceability. Deployed on-premise.">
 <meta property="og:image" content="https://cryonicsystems.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Cryonic MES — Manufacturing Execution System">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About Cryonic Systems | MES Software, Michigan">
-<meta name="twitter:description" content="Cryonic Systems builds manufacturing execution and operational intelligence software for industrial manufacturers. Based in Michigan, deployed on-premise.">
+<meta name="twitter:title" content="Cryonic MES — Manufacturing Execution System Software">
+<meta name="twitter:description" content="Manufacturing execution software for industrial manufacturers. Real-time line visibility, station-level OEE and serial traceability. Deployed on-premise.">
 <meta name="twitter:image" content="https://cryonicsystems.com/og-image.png">
 <meta name="theme-color" content="#0e0e0e">
 <meta name="author" content="Cryonic Systems">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://cryonicsystems.com/#organization","name":"Cryonic Systems","url":"https://cryonicsystems.com/","logo":{"@type":"ImageObject","url":"https://cryonicsystems.com/logo.png"},"description":"Manufacturing execution and operational intelligence software for industrial manufacturers.","address":{"@type":"PostalAddress","addressRegion":"MI","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"knowsAbout":["Manufacturing Execution System","OEE","Production Traceability","OPC UA","X12 EDI","SAP Integration"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cryonicsystems.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://cryonicsystems.com/about.html"}]}]}</script>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<title>About Cryonic Systems | MES Software, Michigan</title>
-<meta name="description" content="Cryonic Systems builds manufacturing execution and operational intelligence software for industrial manufacturers. Based in Michigan, deployed on-premise.">
+<title>Page Not Found | Cryonic Systems</title>
+<meta name="description" content="Manufacturing execution software for industrial manufacturers. Real-time line visibility, station-level OEE and serial traceability. Deployed on-premise.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,14 +85,23 @@
   }
 
 
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; align-items: start; }
-  .about-text p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.8; }
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; }
-  .stat-box:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-  .stat-number { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem; }
-  .stat-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.03em; }
-  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .hero { min-height: calc(100vh - var(--nav-height)); display: flex; align-items: center; position: relative; padding: 4rem 3rem; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg .grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%); }
+  .hero-bg .glow-orb { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(140px); opacity: 0.07; }
+  .hero-bg .glow-orb.orb-1 { background: #fff; top: -10%; right: 10%; animation: float-orb 8s ease-in-out infinite; }
+  .hero-bg .glow-orb.orb-2 { background: #666; bottom: -20%; left: -5%; animation: float-orb 10s ease-in-out infinite reverse; }
+  @keyframes float-orb { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-40px) scale(1.1); } }
+  .hero-content { max-width: 800px; position: relative; z-index: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border: 1px solid var(--border); border-radius: 100px; font-size: 0.75rem; color: var(--text-secondary); font-family: 'DM Mono', monospace; margin-bottom: 2rem; background: var(--bg-secondary); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--white); animation: pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .hero h1 { font-size: clamp(2.8rem,6vw,4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+  .hero h1 .gradient-text { background: linear-gradient(135deg, #fff 0%, #666 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 900px) { .hero { padding: 3rem 1.5rem; } .hero-actions { flex-direction: column; align-items: flex-start; } }
 
 
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; }
@@ -105,6 +112,16 @@
   .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); color: #c8c8c8; margin-bottom: 1.25rem; }
   .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
   .service-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; align-items: start; }
+  .about-text p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.8; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; }
+  .stat-box:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .stat-number { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.03em; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
   .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
@@ -125,39 +142,20 @@
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img" width="1050" height="924"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 <main class="page-content">
-<section>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <div class="section-label">About</div>
-      <h1 class="section-title">Built for<br/>manufacturing</h1>
-      <p>Cryonic Systems develops manufacturing execution and operational intelligence software for industrial manufacturers. The company is based in Michigan and serves discrete and batch production operations.</p>
-      <p>The products come out of daily work inside automotive production environments, and they target the gaps that established MES platforms leave open: operator screens designed around the database rather than the station, visibility that lags the line, OEE reported as a single plant-wide number, and traceability that breaks down at the moment a containment starts.</p>
-      <p>Cryonic MES addresses each of those directly. Software is deployed on-premise on customer hardware, production data stays inside the plant network, and support is handled by the engineers who build the product.</p>
+<section class="hero">
+  <div class="hero-bg"><div class="grid-lines"></div><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Error 404</div>
+    <h1>Page not<br/><span class="gradient-text">found</span></h1>
+    <p>That page doesn't exist or has moved. The links below cover everything on the site.</p>
+    <div class="hero-actions">
+      <a href="index.html" class="btn-primary">Back to Home <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="software.html" class="btn-secondary">Explore Cryonic MES</a>
     </div>
-    <div class="stats-grid reveal">
-      <div class="stat-box"><div class="stat-number">Real-Time</div><div class="stat-label">OPC UA Connectivity</div></div>
-      <div class="stat-box"><div class="stat-number">Serial-Level</div><div class="stat-label">Part Genealogy</div></div>
-      <div class="stat-box"><div class="stat-number">On-Premise</div><div class="stat-label">Deployment Model</div></div>
-      <div class="stat-box"><div class="stat-number">Michigan</div><div class="stat-label">Built and Supported</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section>
-  <div class="reveal">
-    <div class="section-label">How We Work</div>
-    <h2 class="section-title">Direct, on-premise, focused</h2>
-  </div>
-  <div class="services-grid reveal">
-    <div class="service-card"><h3>Support Without A Queue</h3><p>Questions and issues go to the people who wrote the code. There is no tier-one filter between a plant and an engineer who understands the line.</p></div>
-    <div class="service-card"><h3>Your Network, Your Hardware</h3><p>Deployment is on-premise on Windows or Linux. Production data does not leave the building, and the line does not stop because an internet connection did.</p></div>
-    <div class="service-card"><h3>Manufacturing Only</h3><p>Two products, one market. Development effort goes into manufacturing execution and the analytics around it rather than whatever work comes through the door.</p></div>
   </div>
 </section>
 </main>
@@ -172,12 +170,5 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
-<script>
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-</script>
-
 </body>
 </html>
