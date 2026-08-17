@@ -7,6 +7,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <title>About — Cryonic Systems</title>
+<meta name="description" content="Cryonic Systems develops manufacturing execution and operational intelligence software for industrial manufacturers. Based in Michigan.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,36 +76,68 @@
   .stat-number { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem; }
   .stat-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.03em; }
   @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; }
+  .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: all 0.4s ease; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); opacity: 0; transition: opacity 0.4s ease; }
+  .service-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); color: #c8c8c8; margin-bottom: 1.25rem; }
+  .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+  .service-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="software.html">Software</a></li>
-    <li><a href="stack.html">Stack</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="services.html">Services</a></li><li><a href="stack.html">Stack</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
 </nav>
 <div class="page-content">
 <section>
   <div class="about-grid">
     <div class="about-text reveal">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">Precision through<br/>experience</h2>
-      <p>Cryonic Systems was founded on a simple belief: great software is the product of disciplined engineering, clear communication, and a relentless focus on what matters.</p>
-      <p>We partner with organizations ranging from ambitious startups to established enterprises, bringing deep technical expertise and a pragmatic approach to every engagement. Our team delivers solutions that are built to last — clean, documented, and designed for the teams who maintain them.</p>
-      <p>Whether you need a high-performance API, a cloud migration strategy, or a full-stack product built from scratch, we bring the same level of rigor and craftsmanship to every project.</p>
+      <div class="section-label">About</div>
+      <h2 class="section-title">Built for<br/>manufacturing</h2>
+      <p>Cryonic Systems develops manufacturing execution and operational intelligence software for industrial manufacturers. The company is based in Michigan and serves discrete and batch production operations.</p>
+      <p>The products come out of daily work inside automotive production environments, and they target the gaps that established MES platforms leave open: operator screens designed around the database rather than the station, visibility that lags the line, OEE reported as a single plant-wide number, and traceability that breaks down at the moment a containment starts.</p>
+      <p>Cryonic MES addresses each of those directly. Software is deployed on-premise on customer hardware, production data stays inside the plant network, and support is handled by the engineers who build the product.</p>
     </div>
     <div class="stats-grid reveal">
-      <div class="stat-box"><div class="stat-number">7</div><div class="stat-label">Projects Delivered</div></div>
-      <div class="stat-box"><div class="stat-number">99.9%</div><div class="stat-label">Uptime SLA</div></div>
-      <div class="stat-box"><div class="stat-number">12+</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat-box"><div class="stat-number">24/7</div><div class="stat-label">Support Available</div></div>
+      <div class="stat-box"><div class="stat-number">Real-Time</div><div class="stat-label">OPC UA Connectivity</div></div>
+      <div class="stat-box"><div class="stat-number">Serial-Level</div><div class="stat-label">Part Genealogy</div></div>
+      <div class="stat-box"><div class="stat-number">On-Premise</div><div class="stat-label">Deployment Model</div></div>
+      <div class="stat-box"><div class="stat-number">Michigan</div><div class="stat-label">Built and Supported</div></div>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="reveal">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Direct, on-premise, focused</h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><h3>Support Without A Queue</h3><p>Questions and issues go to the people who wrote the code. There is no tier-one filter between a plant and an engineer who understands the line.</p></div>
+    <div class="service-card"><h3>Your Network, Your Hardware</h3><p>Deployment is on-premise on Windows or Linux. Production data does not leave the building, and the line does not stop because an internet connection did.</p></div>
+    <div class="service-card"><h3>Manufacturing Only</h3><p>Two products, one market. Development effort goes into manufacturing execution and the analytics around it rather than whatever work comes through the door.</p></div>
   </div>
 </section>
 </div>
@@ -114,8 +147,8 @@
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>

@@ -6,7 +6,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<title>Home — Cryonic Systems</title>
+<title>Cryonic MES — Manufacturing Execution System | Cryonic Systems</title>
+<meta name="description" content="Cryonic MES delivers real-time line visibility, station-level OEE and serial-level traceability for industrial manufacturers. Deployed on-premise.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -84,31 +85,125 @@
   .hero-actions { display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 900px) { .hero { padding: 3rem 1.5rem; } .hero-actions { flex-direction: column; align-items: flex-start; } }
+
+
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; }
+  .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: all 0.4s ease; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); opacity: 0; transition: opacity 0.4s ease; }
+  .service-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); color: #c8c8c8; margin-bottom: 1.25rem; }
+  .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+  .service-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; align-items: start; }
+  .about-text p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.8; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; }
+  .stat-box:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .stat-number { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.03em; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="software.html">Software</a></li>
-    <li><a href="stack.html">Stack</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="services.html">Services</a></li><li><a href="stack.html">Stack</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
 </nav>
 <div class="page-content">
 <section class="hero">
   <div class="hero-bg"><div class="grid-lines"></div><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span> Available for new projects</div>
-    <h1>We build software<br/>that <span class="gradient-text">moves business<br/>forward</span></h1>
-    <p>Cryonic Systems delivers precision-engineered software solutions — from cloud-native platforms to intelligent automation — for organizations that demand reliability at scale.</p>
+    <div class="hero-badge"><span class="dot"></span> Manufacturing Execution Systems</div>
+    <h1>Software built to run<br/><span class="gradient-text">industrial production</span></h1>
+    <p>Cryonic MES delivers real-time line visibility, station-level OEE, and serial-level traceability from receiving through shipping — deployed on-premise, on hardware you control.</p>
     <div class="hero-actions">
-      <a href="contact.html" class="btn-primary">Start a Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="services.html" class="btn-secondary">Our Services</a>
+      <a href="software.html" class="btn-primary">Explore Cryonic MES <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="contact.html" class="btn-secondary">Request a Demo</a>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="reveal">
+    <div class="section-label">Our Software</div>
+    <h2 class="section-title">Two products for<br/>industrial operations</h2>
+    <p class="section-desc">Cryonic MES runs production. Axiom makes sense of the data it produces. Each stands on its own and both deploy inside your network.</p>
+  </div>
+  <div class="services-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+    <div class="service-card prod-card">
+      <span class="prod-tag">Flagship &middot; Manufacturing Execution</span>
+      <h3>Cryonic MES</h3>
+      <p>A complete manufacturing execution system for batch and sequence production. Real-time OPC machine connectivity, station-level OEE, serial genealogy, customer EDI, packaging and shipping — receiving through dock, in one system.</p>
+      <a href="software.html" class="prod-link">Explore Cryonic MES <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="service-card prod-card">
+      <span class="prod-tag">Secondary &middot; Operational Intelligence</span>
+      <h3>Axiom</h3>
+      <p>An analytics platform for operations that have outgrown dashboards. Axiom maps relationships across customers, orders, products and events, scores risk with built-in models, and surfaces the anomalies worth acting on.</p>
+      <a href="software.html#axiom" class="prod-link">Explore Axiom <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="reveal">
+    <div class="section-label">Why Cryonic MES</div>
+    <h2 class="section-title">Engineered where legacy<br/>systems fall short</h2>
+    <p class="section-desc">Each capability targets a specific, well-known failure point in existing manufacturing execution platforms.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Operator-First Interface</h3><p>Screens designed around the station rather than the database. Plain-language status, large touch targets and one clear action per screen reduce mis-scans and shorten operator training.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Real-Time Visibility</h3><p>OPC UA connectivity pushes cycle counts, machine states and faults to every open screen as they happen. The floor and the front office see the same data at the same moment.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div><h3>Self-Service Configuration</h3><p>Work centers, production lines, parts, BOMs, production stages, OPC tags and print queues are configured through the interface. Adding a part number is an afternoon task, not a vendor ticket.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3>Long-Term Maintainability</h3><p>Predictable data structures, documented machine interfaces and a clean separation between production control and business operations keep the system serviceable years after go-live.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg></div><h3>Station-Level OEE</h3><p>Availability, performance and quality calculated per line and per station with downtime reasons attached. Losses resolve to a specific location and cause instead of a plant-wide average.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 009 9"/></svg></div><h3>Serial-Level Genealogy</h3><p>Every part receives a unique serial at creation, carrying its material consumption, station history, container and shipment. Containment scopes to affected parts rather than an entire shift.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="reveal">
+    <div class="section-label">At a Glance</div>
+    <h2 class="section-title">Built for the plant floor</h2>
+  </div>
+  <div class="stats-grid reveal" style="grid-template-columns: repeat(4, 1fr); max-width: 1200px;">
+    <div class="stat-box"><div class="stat-number">Real-Time</div><div class="stat-label">OPC UA Machine Connectivity</div></div>
+    <div class="stat-box"><div class="stat-number">Serial-Level</div><div class="stat-label">Part Genealogy &amp; Traceability</div></div>
+    <div class="stat-box"><div class="stat-number">On-Premise</div><div class="stat-label">Deployment On Your Hardware</div></div>
+    <div class="stat-box"><div class="stat-number">Door to Door</div><div class="stat-label">Receiving Through Shipping</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="reveal" style="text-align:center;">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">See it running on a live system</h2>
+    <p class="section-desc" style="margin: 0 auto 2.5rem;">Demonstrations run on a working system, not a slide deck. Bring a real part number and a real process, and it goes through receiving, production, packaging and shipping end to end.</p>
+    <a href="contact.html" class="btn-primary">Request a Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 </div>
@@ -118,8 +213,8 @@
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>

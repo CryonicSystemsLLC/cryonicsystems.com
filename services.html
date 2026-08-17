@@ -7,6 +7,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <title>Services — Cryonic Systems</title>
+<meta name="description" content="Deployment, OPC and EDI integration, legacy MES migration and long-term support for industrial manufacturers.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,58 +76,45 @@
   .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); color: #c8c8c8; margin-bottom: 1.25rem; }
   .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
   .service-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="software.html">Software</a></li>
-    <li><a href="stack.html">Stack</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="stack.html">Stack</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
 </nav>
 <div class="page-content">
 <section>
   <div class="reveal">
-    <div class="section-label">What We Do</div>
-    <h2 class="section-title">Engineered for complexity,<br/>delivered with clarity</h2>
-    <p class="section-desc">Full-spectrum software development with a focus on resilient architecture and long-term maintainability.</p>
+    <div class="section-label">Services</div>
+    <h2 class="section-title">Implementation, integration<br/>and long-term support</h2>
+    <p class="section-desc">Deployment and ongoing support for Cryonic MES and Axiom in industrial production environments. Work is handled by the engineers who build the software.</p>
   </div>
   <div class="services-grid reveal">
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-      <h3>Custom Software Development</h3>
-      <p>End-to-end design and development of bespoke applications tailored to your specific business requirements and workflows.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg></div>
-      <h3>Cloud & Infrastructure</h3>
-      <p>Scalable cloud-native solutions with automated CI/CD pipelines, container orchestration, and infrastructure as code.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
-      <h3>AI & Intelligent Automation</h3>
-      <p>Machine learning integrations, predictive analytics, and process automation that drives measurable efficiency gains.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <h3>Web & Mobile Applications</h3>
-      <p>High-performance, responsive applications built with modern frameworks — delivering fluid experiences across every device.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <h3>Security & Compliance</h3>
-      <p>Secure-by-design architecture with comprehensive testing, vulnerability assessment, and regulatory compliance frameworks.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-      <h3>Legacy Modernization</h3>
-      <p>Strategic migration of legacy systems to modern architectures — preserving business logic while unlocking new capabilities.</p>
-    </div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><h3>Deployment &amp; Commissioning</h3><p>Installation on plant hardware, database setup, environment configuration and commissioning alongside plant IT and controls staff — including validation on live lines before cutover.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><h3>Machine &amp; OPC Integration</h3><p>Tag mapping, station handshake definition and interface scripting between the equipment layer and the MES, documented so controls engineers can maintain it afterward.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><h3>Customer EDI Onboarding</h3><p>Setup and validation of inbound customer transactions — planning schedules, purchase orders and changes, shipping schedules, production sequence releases and warehouse orders.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>ERP Integration</h3><p>Connection between production data and the business system, including SAP advance ship notice output, so shipping events reach the ERP without manual re-entry.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3>Legacy MES Migration</h3><p>Structured transition from an existing platform: part and BOM data migration, parallel running during changeover, and a cutover plan that does not require stopping production.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Support &amp; Maintenance</h3><p>Direct support without a tier-one queue. Updates, configuration changes and issue resolution are handled by the people who wrote the code and understand the line.</p></div>
+  </div>
+  <div class="reveal" style="margin-top:3rem;">
+    <a href="contact.html" class="btn-primary">Start a Conversation <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 </div>
@@ -136,8 +124,8 @@
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>

@@ -7,6 +7,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <title>Contact — Cryonic Systems</title>
+<meta name="description" content="Request a Cryonic MES or Axiom demonstration, or ask about integration and migration.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -84,28 +85,39 @@
   .form-status { text-align: center; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; margin-top: 1rem; display: none; }
   .form-status.success { display: block; background: rgba(255,255,255,0.05); color: #c8c8c8; border: 1px solid var(--border); }
   @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } .form-row { grid-template-columns: 1fr; } }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="software.html">Software</a></li>
-    <li><a href="stack.html">Stack</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="nav-cta active">Contact</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="services.html">Services</a></li><li><a href="stack.html">Stack</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta active">Contact</a></li></ul>
 </nav>
 <div class="page-content">
 <section>
   <div class="contact-grid">
     <div class="contact-info reveal">
       <div class="section-label">Get In Touch</div>
-      <h2 class="section-title">Let's build<br/>something great</h2>
-      <p>Have a project in mind or want to discuss how we can help? Reach out — we typically respond within one business day.</p>
-
+      <h2 class="section-title">Let's talk about<br/>your line</h2>
+      <p>Tell us what you're running today and where the current system falls down. Demonstrations run on a live system, and the first answer is a straight one — including if Cryonic MES isn't the right fit.</p>
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Michigan, USA &middot; response within one business day</span>
+      </div>
     </div>
     <div class="contact-form reveal">
       <form id="contactForm">
@@ -113,10 +125,22 @@
           <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
         </div>
-        <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject"><option value="general">General Inquiry</option><option value="project">New Project</option><option value="consulting">Consulting</option><option value="support">Support</option></select></div>
+        <div class="form-row">
+          <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Company name"></div>
+          <div class="form-group"><label for="role">Role</label><select id="role" name="role">
+            <option>Plant Manager</option><option>Manufacturing Engineer</option><option>IT / OT Leader</option><option>Operations Leader</option><option>Quality</option><option>Other</option>
+          </select></div>
+        </div>
+        <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject">
+          <option value="mes-demo">Cryonic MES Demo</option>
+          <option value="axiom-demo">Axiom Demo</option>
+          <option value="replace-mes">Replacing an Existing MES</option>
+          <option value="integration">Integration or EDI Question</option>
+          <option value="general">General Inquiry</option>
+        </select></div>
         <input type="hidden" name="_subject" value="New message from cryonicsystems.com">
         <input type="text" name="_gotcha" style="display:none">
-        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea></div>
+        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Lines, part volume, current system, and the problem that prompted the search..." required></textarea></div>
         <button type="submit" class="btn-primary btn-submit" id="submitBtn">Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <p class="form-note">We'll get back to you within 1 business day.</p>
       </form>
@@ -135,8 +159,8 @@
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -147,33 +171,21 @@ var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-
+</script>
+<script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  var btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  var formData = new FormData(this);
+  var form = this, btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending...';
   fetch('https://formspree.io/f/mdalloqk', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  }).then(function(response) {
-    if (response.ok) {
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    } else {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      alert('Something went wrong. Please try again.');
-    }
+    method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+  }).then(function(r) {
+    if (r.ok) { form.style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; }
+    else { btn.disabled = false; btn.textContent = 'Send Message'; alert('Something went wrong. Please email us directly.'); }
   }).catch(function() {
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
-    alert('Something went wrong. Please try again.');
+    btn.disabled = false; btn.textContent = 'Send Message'; alert('Something went wrong. Please email us directly.');
   });
 });
 </script>
-
 </body>
 </html>

@@ -6,7 +6,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<title>Technology Stack — Cryonic Systems</title>
+<title>Technology — Cryonic Systems</title>
+<meta name="description" content="The technology behind Cryonic MES and Axiom: .NET, SQL Server, OPC UA, X12 EDI, on-premise deployment.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -73,49 +74,70 @@
   .stack-categories { max-width: 900px; margin-top: 3rem; }
   .stack-category { margin-bottom: 2.5rem; }
   .stack-category h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="stack.html" class="active">Stack</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="software.html">Software</a></li><li><a href="services.html">Services</a></li><li><a href="stack.html" class="active">Stack</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
 </nav>
 <div class="page-content">
 <section>
   <div class="reveal">
     <div class="section-label">Technology</div>
-    <h2 class="section-title">Our toolbox</h2>
-    <p class="section-desc">We work with proven, modern technologies chosen for reliability, performance, and developer experience.</p>
+    <h2 class="section-title">Built on proven technology</h2>
+    <p class="section-desc">Cryonic MES and Axiom are built on a supported, mainstream stack — chosen so plant IT departments can host, secure and maintain them with the skills already on staff.</p>
   </div>
   <div class="stack-categories reveal">
     <div class="stack-category">
-      <h3>Languages</h3>
+      <h3>Application</h3>
       <div class="stack-row">
-        <span class="stack-tag">C#</span><span class="stack-tag">Rust</span><span class="stack-tag">TypeScript</span><span class="stack-tag">Python</span><span class="stack-tag">Go</span>
-      </div>
-    </div>
-    <div class="stack-category">
-      <h3>Frameworks</h3>
-      <div class="stack-row">
-        <span class="stack-tag">.NET</span><span class="stack-tag">Blazor</span><span class="stack-tag">React</span><span class="stack-tag">Angular</span><span class="stack-tag">Node.js</span>
-      </div>
-    </div>
-    <div class="stack-category">
-      <h3>Cloud & DevOps</h3>
-      <div class="stack-row">
-        <span class="stack-tag">Azure</span><span class="stack-tag">AWS</span><span class="stack-tag">Docker</span><span class="stack-tag">Kubernetes</span><span class="stack-tag">Terraform</span><span class="stack-tag">GitHub Actions</span>
+        <span class="stack-tag">C#</span><span class="stack-tag">.NET 8</span><span class="stack-tag">ASP.NET Core</span><span class="stack-tag">Blazor</span><span class="stack-tag">TypeScript</span><span class="stack-tag">React</span><span class="stack-tag">Python</span>
       </div>
     </div>
     <div class="stack-category">
       <h3>Data</h3>
       <div class="stack-row">
-        <span class="stack-tag">PostgreSQL</span><span class="stack-tag">SQL Server</span><span class="stack-tag">Redis</span><span class="stack-tag">GraphQL</span><span class="stack-tag">MongoDB</span>
+        <span class="stack-tag">SQL Server</span><span class="stack-tag">Entity Framework Core</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span>
+      </div>
+    </div>
+    <div class="stack-category">
+      <h3>Plant Connectivity</h3>
+      <div class="stack-row">
+        <span class="stack-tag">OPC UA</span><span class="stack-tag">Kepware</span><span class="stack-tag">SignalR</span><span class="stack-tag">X12 EDI</span><span class="stack-tag">SAP IDoc</span>
+      </div>
+    </div>
+    <div class="stack-category">
+      <h3>Output &amp; Labeling</h3>
+      <div class="stack-row">
+        <span class="stack-tag">Zebra ZPL</span><span class="stack-tag">Intermec IPL</span><span class="stack-tag">Barcode Generation</span><span class="stack-tag">PDF Reporting</span><span class="stack-tag">Excel Export</span>
+      </div>
+    </div>
+    <div class="stack-category">
+      <h3>Deployment</h3>
+      <div class="stack-row">
+        <span class="stack-tag">Windows Server</span><span class="stack-tag">IIS</span><span class="stack-tag">Linux</span><span class="stack-tag">systemd</span><span class="stack-tag">Docker</span><span class="stack-tag">On-Premise</span><span class="stack-tag">Air-Gapped</span>
+      </div>
+    </div>
+    <div class="stack-category">
+      <h3>Security</h3>
+      <div class="stack-row">
+        <span class="stack-tag">JWT Authentication</span><span class="stack-tag">Role-Based Access</span><span class="stack-tag">Security Groups</span><span class="stack-tag">Dashboard-Level Permissions</span>
       </div>
     </div>
   </div>
@@ -127,8 +149,8 @@
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>

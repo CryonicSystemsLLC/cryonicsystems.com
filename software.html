@@ -6,7 +6,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<title>Our Software — Cryonic Systems</title>
+<title>Software — Cryonic MES & Axiom | Cryonic Systems</title>
+<meta name="description" content="Cryonic MES: manufacturing execution for batch and sequence production. Axiom: self-hosted operational intelligence.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,10 +17,6 @@
     --accent-dim: rgba(255,255,255,0.06);
     --text-primary: #e0e0e0; --text-secondary: #888888; --text-muted: #555555;
     --white: #ffffff; --nav-height: 64px;
-    --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.08);
-    --purple: #a855f7; --purple-dim: rgba(168,85,247,0.08);
-    --green: #22c55e; --green-dim: rgba(34,197,94,0.08);
-    --orange: #f59e0b; --orange-dim: rgba(245,158,11,0.08);
   }
   html { scroll-behavior: smooth; }
   body { font-family: 'Sora', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
@@ -39,11 +36,16 @@
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .hamburger span { width: 24px; height: 2px; background: var(--text-primary); }
 
-  .page-content { padding-top: var(--nav-height); }
+  .page-content { padding-top: var(--nav-height); min-height: calc(100vh - 120px); }
   section { padding: 5rem 3rem; position: relative; }
   .section-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
   .section-title { font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; color: var(--white); }
-  .section-desc { color: var(--text-secondary); max-width: 640px; font-size: 1.05rem; margin-bottom: 3rem; }
+  .section-desc { color: var(--text-secondary); max-width: 540px; font-size: 1.05rem; margin-bottom: 3.5rem; }
+
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: var(--white); color: var(--bg-primary); font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s ease; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(255,255,255,0.1); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: transparent; color: var(--text-primary); font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--text-muted); background: var(--bg-secondary); }
 
   footer { border-top: 1px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; }
   .footer-left { display: flex; align-items: center; gap: 2rem; }
@@ -55,380 +57,6 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== SOFTWARE PAGE STYLES ===== */
-
-  .software-header {
-    text-align: center;
-    padding: 6rem 3rem 2rem;
-  }
-
-  .software-header .section-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Product Tabs */
-  .product-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0 3rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .tab-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    color: var(--text-secondary);
-    font-family: 'Sora', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .tab-btn:hover {
-    border-color: var(--border-hover);
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-  }
-
-  .tab-btn.active {
-    color: var(--white);
-    border-color: var(--white);
-    background: var(--bg-secondary);
-  }
-
-  .tab-btn .tab-icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.65rem;
-  }
-
-  .tab-btn[data-product="cryonic"] .tab-icon { background: var(--cyan-dim); color: var(--cyan); }
-  .tab-btn[data-product="singularity"] .tab-icon { background: var(--purple-dim); color: var(--purple); }
-  .tab-btn[data-product="axiom"] .tab-icon { background: var(--green-dim); color: var(--green); }
-  .tab-btn[data-product="sepherix"] .tab-icon { background: var(--orange-dim); color: var(--orange); }
-
-  .tab-btn[data-product="cryonic"].active { border-color: var(--cyan); }
-  .tab-btn[data-product="singularity"].active { border-color: var(--purple); }
-  .tab-btn[data-product="axiom"].active { border-color: var(--green); }
-  .tab-btn[data-product="sepherix"].active { border-color: var(--orange); }
-
-  /* Product Panels */
-  .product-panel {
-    display: none;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 3rem 5rem;
-    animation: panelFadeIn 0.5s ease;
-  }
-
-  .product-panel.active { display: block; }
-
-  @keyframes panelFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Product Hero */
-  .product-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-bottom: 4rem;
-  }
-
-  .product-hero-text h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    margin-bottom: 0.25rem;
-  }
-
-  .product-hero-text .product-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-  }
-
-  .product-type.cyan { color: var(--cyan); background: var(--cyan-dim); }
-  .product-type.purple { color: var(--purple); background: var(--purple-dim); }
-  .product-type.green { color: var(--green); background: var(--green-dim); }
-  .product-type.orange { color: var(--orange); background: var(--orange-dim); }
-
-  .product-hero-text .product-desc {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  .product-hero-text .product-tagline {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-style: italic;
-    border-left: 2px solid var(--border);
-    padding-left: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Feature pills */
-  .feature-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .pill {
-    padding: 0.35rem 0.85rem;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: var(--accent-dim);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-    white-space: nowrap;
-  }
-
-  /* Screenshot showcase */
-  .product-hero-visual {
-    position: relative;
-  }
-
-  .hero-screenshot {
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease;
-  }
-
-  .hero-screenshot:hover {
-    transform: scale(1.02);
-  }
-
-  /* Screenshot gallery */
-  .screenshot-gallery {
-    margin-bottom: 4rem;
-  }
-
-  .screenshot-gallery h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .gallery-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .gallery-item {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .gallery-item:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  }
-
-  .gallery-item img {
-    width: 100%;
-    display: block;
-  }
-
-  .gallery-item .gallery-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem 1.25rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--white);
-  }
-
-  /* Capabilities grid */
-  .capabilities {
-    margin-bottom: 4rem;
-  }
-
-  .capabilities h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-
-  .cap-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .cap-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-  }
-
-  .cap-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-  }
-
-  .cap-card .cap-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-  }
-
-  .cap-icon.cyan { background: var(--cyan-dim); color: var(--cyan); }
-  .cap-icon.purple { background: var(--purple-dim); color: var(--purple); }
-  .cap-icon.green { background: var(--green-dim); color: var(--green); }
-  .cap-icon.orange { background: var(--orange-dim); color: var(--orange); }
-
-  .cap-card h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .cap-card p {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* CTA banner */
-  .product-cta {
-    text-align: center;
-    padding: 3rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-  }
-
-  .product-cta h3 {
-    font-size: 1.4rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .product-cta p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: var(--white); color: var(--bg-primary); font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s ease; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(255,255,255,0.1); }
-
-  /* Lightbox */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: rgba(0,0,0,0.92);
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    cursor: pointer;
-  }
-  .lightbox.active { display: flex; }
-  .lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 80px rgba(0,0,0,0.5); }
-  .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; color: white; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
-
-  /* Download dropdowns */
-  .download-group {
-    position: relative;
-  }
-
-  .download-toggle {
-    position: relative;
-  }
-
-  .download-dropdown {
-    display: none;
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    min-width: 220px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    z-index: 50;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-  }
-
-  .download-dropdown.open {
-    display: block;
-    animation: panelFadeIn 0.2s ease;
-  }
-
-  .download-dropdown a {
-    display: block;
-    padding: 0.7rem 1rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-family: 'Sora', sans-serif;
-    transition: background 0.2s;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .download-dropdown a:last-child {
-    border-bottom: none;
-  }
-
-  .download-dropdown a:hover {
-    background: var(--accent-dim);
-    color: var(--white);
-  }
-
   @media (max-width: 900px) {
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(14,14,14,0.95); backdrop-filter: blur(20px); padding: 1.5rem; gap: 1.25rem; border-bottom: 1px solid var(--border); }
@@ -437,518 +65,148 @@
     section { padding: 3rem 1.5rem; }
     footer { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
     .footer-left { flex-direction: column; gap: 1rem; }
-    .product-hero { grid-template-columns: 1fr; gap: 2rem; }
-    .gallery-row { grid-template-columns: 1fr; }
-    .cap-grid { grid-template-columns: 1fr; }
-    .product-panel { padding: 0 1.5rem 3rem; }
-    .software-header { padding: 4rem 1.5rem 2rem; }
-    .product-tabs { padding: 0 1.5rem; }
-    .tab-btn { padding: 0.75rem 1.25rem; font-size: 0.8rem; }
   }
+
+
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; }
+  .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: all 0.4s ease; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); opacity: 0; transition: opacity 0.4s ease; }
+  .service-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); color: #c8c8c8; margin-bottom: 1.25rem; }
+  .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+  .service-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+
+  .stack-row { display: flex; flex-wrap: wrap; gap: 0.75rem; max-width: 900px; }
+  .stack-tag { padding: 0.55rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-size: 0.85rem; color: var(--text-secondary); font-family: 'DM Mono', monospace; transition: all 0.3s ease; cursor: default; }
+  .stack-tag:hover { border-color: var(--text-muted); color: var(--white); background: rgba(255,255,255,0.05); }
+  .stack-categories { max-width: 900px; margin-top: 3rem; }
+  .stack-category { margin-bottom: 2.5rem; }
+  .stack-category h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin-bottom: 3.5rem; }
+  .shot { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .shot:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.8rem 1.1rem; border-top: 1px solid var(--border); }
+  .prod-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s ease; }
+  .prod-link:hover { gap: 0.75rem; }
+  .prod-card { padding: 2.5rem !important; }
+  .prod-card h3 { font-size: 1.6rem !important; letter-spacing: -0.03em; margin-bottom: 0.75rem !important; }
+  .prod-card p { font-size: 0.95rem !important; }
+  .prod-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
+  .divider { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } .prod-card { padding: 1.8rem !important; } }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img"></a>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="software.html" class="active">Software</a></li>
-    <li><a href="stack.html">Stack</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links"><li><a href="software.html" class="active">Software</a></li><li><a href="services.html">Services</a></li><li><a href="stack.html">Stack</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
 </nav>
-
 <div class="page-content">
+<section>
+  <div class="reveal">
+    <div class="section-label">Flagship Product</div>
+    <h2 class="section-title">Cryonic MES</h2>
+    <p class="section-desc">A complete manufacturing execution system for batch and sequence production. Receiving through shipping, with the visibility, OEE and traceability that legacy systems treat as an afterthought. Deployed on-premise, inside your network.</p>
+  </div>
+  <div class="shots reveal">
+    <figure class="shot"><img src="software/cryonic-overview.png" alt="Cryonic MES plant overview dashboard" loading="lazy"><figcaption>Plant overview &middot; live status, OEE, downtime and scrap</figcaption></figure>
+    <figure class="shot"><img src="software/cryonic-main.png" alt="Cryonic MES production station screen" loading="lazy"><figcaption>Production &middot; operator station screen</figcaption></figure>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Operator-First Interface</h3><p>Station state reads in plain language — not an error code requiring a lookup table. Large targets suit gloves, glare and a scanner in one hand, and the primary control never moves between screens.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Real-Time Visibility</h3><p>Changes at the equipment layer push straight to every open screen. There is no refresh button because there is nothing to refresh. Active alarms carry line, station and duration.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg></div><h3>OEE That Isolates Problems</h3><p>A bottleneck at OP30 is not diluted by five healthy stations upstream. Downtime and lock-in tracking capture why a line stopped, and first-pass yield sits beside availability loss.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 009 9"/></svg></div><h3>Genealogy That Holds Up</h3><p>Serial-level rather than lot-level, so containment scopes to the parts actually affected. FIFO consumption and BOM backflush tie raw material to finished parts, containers and shipments.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div><h3>Configuration Without Tickets</h3><p>Parts, lines, stations, stages, BOMs, packout stations, OPC tags and label templates are all managed from the configuration dashboards by plant engineering staff.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3>Maintainable For A Decade</h3><p>The real cost of an MES is the years after go-live. Readable data, documented handshakes and separated concerns keep the system legible to whoever inherits it.</p></div>
+  </div>
+</section>
 
-<!-- Header -->
-<div class="software-header">
-  <p class="section-label">Our Software</p>
-  <h1 class="section-title">Products built for precision</h1>
-  <p class="section-desc">Purpose-built platforms engineered in-house by Cryonic Systems. Each product is designed to solve real operational challenges — and battle-tested in production environments.</p>
+<section style="padding-top:0;">
+  <div class="reveal">
+    <div class="section-label">Material Flow</div>
+    <h2 class="section-title">One system, door to door</h2>
+    <p class="section-desc">Material moves in one direction through the plant. Cryonic MES follows it the whole way, so the trail is unbroken by the time a part reaches the customer.</p>
+  </div>
+  <div class="services-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3>01 &middot; Receive</h3><p>Inbound material received against the order and put away to a warehouse location, with lot and container identity captured at the door.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>02 &middot; Produce</h3><p>Stations report cycles, states and faults live. Material is consumed against the BOM and every part is assigned a serial the moment it exists.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3>03 &middot; Package</h3><p>Serials scanned into containers. Containers close on count, print their own labels and stay linked to the parts inside them.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3>04 &middot; Ship</h3><p>Containers load to a truck bay, shipping documents generate, and the advance ship notice carries the same serial trail to the customer.</p></div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="reveal">
+    <div class="section-label">Coverage</div>
+    <h2 class="section-title">What Cryonic MES covers</h2>
+  </div>
+  <div class="stack-categories reveal">
+    <div class="stack-category"><h3>Production</h3><div class="stack-row">
+      <span class="stack-tag">Live Station Monitoring</span><span class="stack-tag">Sequence Production</span><span class="stack-tag">Batch Production</span><span class="stack-tag">Work Order Queue</span><span class="stack-tag">Manual &amp; Auto Cycle</span><span class="stack-tag">Job Start / Pause / Complete</span>
+    </div></div>
+    <div class="stack-category"><h3>Materials &amp; Warehouse</h3><div class="stack-row">
+      <span class="stack-tag">Receiving</span><span class="stack-tag">Warehouse Locations</span><span class="stack-tag">FIFO Consumption</span><span class="stack-tag">BOM Backflush</span><span class="stack-tag">Material Planning</span><span class="stack-tag">Material Reservation</span>
+    </div></div>
+    <div class="stack-category"><h3>Packaging &amp; Shipping</h3><div class="stack-row">
+      <span class="stack-tag">Serial Scanning</span><span class="stack-tag">Container Management</span><span class="stack-tag">Auto-Close On Count</span><span class="stack-tag">Packout Stations</span><span class="stack-tag">Truck Bay Management</span><span class="stack-tag">Shipping Documents</span>
+    </div></div>
+    <div class="stack-category"><h3>Quality</h3><div class="stack-row">
+      <span class="stack-tag">Inspection Management</span><span class="stack-tag">Scrap Recording</span><span class="stack-tag">Scrap Reason Codes</span><span class="stack-tag">Rework &amp; Restoration</span><span class="stack-tag">First-Pass Yield</span>
+    </div></div>
+    <div class="stack-category"><h3>Reporting &amp; OEE</h3><div class="stack-row">
+      <span class="stack-tag">Availability / Performance / Quality</span><span class="stack-tag">Per-Line OEE</span><span class="stack-tag">Per-Station OEE</span><span class="stack-tag">Downtime Tracking</span><span class="stack-tag">PDF Export</span><span class="stack-tag">Excel Export</span>
+    </div></div>
+    <div class="stack-category"><h3>Integration</h3><div class="stack-row">
+      <span class="stack-tag">OPC UA</span><span class="stack-tag">Customer EDI</span><span class="stack-tag">Planning Schedules</span><span class="stack-tag">Shipping Schedules</span><span class="stack-tag">Production Sequence</span><span class="stack-tag">SAP Advance Ship Notice</span><span class="stack-tag">Zebra &amp; Intermec Labels</span>
+    </div></div>
+  </div>
+  <div class="reveal" style="margin-top:2.5rem;">
+    <a href="contact.html" class="btn-primary">Request a Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="axiom">
+  <div class="reveal">
+    <div class="section-label">Secondary Product</div>
+    <h2 class="section-title">Axiom</h2>
+    <p class="section-desc">An operational intelligence platform for teams whose questions have outgrown dashboards. Axiom maps the relationships across customers, orders, products and events, then surfaces the anomalies worth acting on. Self-hosted, so operational data stays inside the network.</p>
+  </div>
+  <div class="shots reveal">
+    <figure class="shot"><img src="software/axiom-main.png" alt="Axiom operational dashboard" loading="lazy"><figcaption>Mission control &middot; real-time operational dashboard</figcaption></figure>
+    <figure class="shot"><img src="software/axiom-predictions.png" alt="Axiom predictions and anomaly detection" loading="lazy"><figcaption>Predictions &middot; risk scoring and anomaly detection</figcaption></figure>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><h3>Knowledge Graph</h3><p>Data renders as an explorable network rather than a set of tables. Customers link to orders, orders to products, products to events — revealing structure that stays invisible in a report.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h3>Prediction &amp; Anomaly Detection</h3><p>Built-in models score risk and lifetime value per account and flag revenue drops and usage decline automatically, with severity banding so triage does not require interpreting a raw number.</p></div>
+    <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><h3>Self-Hosted &amp; Write-Back</h3><p>Deploys on your cloud, on-premise or an air-gapped network with no vendor tenant holding operational data. Actions execute from the same screen rather than exporting a list.</p></div>
+  </div>
+  <div class="reveal" style="margin-top:0.5rem;">
+    <a href="contact.html" class="btn-secondary">Ask About Axiom <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
 </div>
-
-<!-- Tabs -->
-<div class="product-tabs">
-  <button class="tab-btn active" data-product="cryonic" onclick="switchTab('cryonic')">
-    <span class="tab-icon">MES</span>
-    Cryonic MES
-  </button>
-  <button class="tab-btn" data-product="singularity" onclick="switchTab('singularity')">
-    <span class="tab-icon">IDE</span>
-    Singularity
-  </button>
-  <button class="tab-btn" data-product="axiom" onclick="switchTab('axiom')">
-    <span class="tab-icon">AX</span>
-    Axiom
-  </button>
-  <button class="tab-btn" data-product="sepherix" onclick="switchTab('sepherix')">
-    <span class="tab-icon">PO</span>
-    Sepherix
-  </button>
-</div>
-
-<!-- ==================== CRYONIC MES ==================== -->
-<div class="product-panel active" id="panel-cryonic">
-  <div class="product-hero">
-    <div class="product-hero-text">
-      <span class="product-type cyan">Manufacturing Execution System</span>
-      <h2>Cryonic MES</h2>
-      <p class="product-desc">A full-featured Manufacturing Execution System built for batch and sequence production environments. Cryonic MES — named after the company itself — delivers real-time production monitoring, end-to-end traceability, and complete shop floor control through a unified web interface.</p>
-      <p class="product-tagline">From raw material receiving to finished goods shipping — every part, every step, fully tracked.</p>
-      <div class="feature-pills">
-        <span class="pill">Real-Time OPC Monitoring</span>
-        <span class="pill">EDI Integration</span>
-        <span class="pill">OEE Analytics</span>
-        <span class="pill">Barcode & Label Printing</span>
-        <span class="pill">SAP Integration</span>
-        <span class="pill">Quality Management</span>
-        <span class="pill">BOM Backflush</span>
-        <span class="pill">Role-Based Access</span>
-      </div>
-    </div>
-    <div class="product-hero-visual">
-      <img src="software/cryonic-overview.png" alt="Cryonic MES Plant Overview" class="hero-screenshot" onclick="openLightbox(this)">
-    </div>
-  </div>
-
-  <div class="screenshot-gallery">
-    <h3>📸 In Action</h3>
-    <div class="gallery-row">
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/cryonic-main.png" alt="Production Dashboard">
-        <div class="gallery-label">Production — Live Status Monitoring</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/cryonic-edi.png" alt="EDI Integration">
-        <div class="gallery-label">Order Intake — EDI Message Processing</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="capabilities">
-    <h3>Key Capabilities</h3>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="cap-icon cyan">⚡</div>
-        <h4>Real-Time Production</h4>
-        <p>Live machine connectivity via OPC UA with SignalR-powered dashboards that update in real time. Monitor line status, cycle counts, and output as it happens.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon cyan">📦</div>
-        <h4>End-to-End Traceability</h4>
-        <p>Full genealogy from raw material receiving through packaging and shipping. Every serial number, every container, every shipment — fully tracked with FIFO material consumption.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon cyan">📊</div>
-        <h4>OEE & Analytics</h4>
-        <p>Automatic calculation of availability, performance, and quality metrics. Identify bottlenecks, track downtime reasons, and drive continuous improvement with data.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon cyan">🔗</div>
-        <h4>EDI & ERP Integration</h4>
-        <p>Native support for X12 EDI transactions (830, 850, 860, 862, 866, 940) and SAP Advanced Shipping Notice integration. Seamless data flow between systems.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon cyan">✅</div>
-        <h4>Quality & Scrap Management</h4>
-        <p>Inspection workflows, scrap recording with reason codes, and rework restoration. Maintain quality standards while minimizing waste across the production floor.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon cyan">🏷️</div>
-        <h4>Labeling & Packaging</h4>
-        <p>Template-driven label printing for Intermec and Zebra printers. Automated packaging workflows with serial scanning, container management, and auto-close logic.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="product-cta">
-    <h3>Ready to modernize your shop floor?</h3>
-    <p>Let's discuss how Cryonic MES can streamline your manufacturing operations.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
-  </div>
-</div>
-
-<!-- ==================== SINGULARITY ==================== -->
-<div class="product-panel" id="panel-singularity">
-  <div class="product-hero">
-    <div class="product-hero-text">
-      <span class="product-type purple">Integrated Development Environment</span>
-      <h2>Singularity</h2>
-      <p class="product-desc">A next-generation code editor and development environment with deeply integrated AI assistance. Singularity brings together a powerful editor, built-in terminal, extension marketplace, customizable themes, MCP server support, and multi-provider AI — all in a single, streamlined desktop application.</p>
-      <p class="product-tagline">Your code editor should be as smart as you are. Singularity makes it smarter.</p>
-      <div class="feature-pills">
-        <span class="pill">Multi-Provider AI</span>
-        <span class="pill">Extension Marketplace</span>
-        <span class="pill">MCP Server Support</span>
-        <span class="pill">10+ Themes</span>
-        <span class="pill">Integrated Terminal</span>
-        <span class="pill">API Key Management</span>
-        <span class="pill">Git Integration</span>
-        <span class="pill">Desktop Native</span>
-      </div>
-      <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <div class="download-group">
-          <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Windows
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="download-dropdown">
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Windows-2.0.8-x64-Setup.exe">Windows x64</a>
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Windows-2.0.8-arm64-Setup.exe">Windows ARM</a>
-          </div>
-        </div>
-        <div class="download-group">
-          <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            macOS
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="download-dropdown">
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Mac-2.0.8-arm64-Installer.dmg">macOS ARM (Apple Silicon)</a>
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Mac-2.0.8-x64-Installer.dmg">macOS x64 (Intel)</a>
-          </div>
-        </div>
-        <div class="download-group">
-          <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Linux
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="download-dropdown">
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Linux-2.0.8-amd64.deb">Linux x64</a>
-            <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Linux-2.0.8-arm64.deb">Linux ARM64</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-hero-visual">
-      <img src="software/singularity-main.png" alt="Singularity IDE" class="hero-screenshot" onclick="openLightbox(this)">
-    </div>
-  </div>
-
-  <div class="screenshot-gallery">
-    <h3>📸 In Action</h3>
-    <div class="gallery-row" style="grid-template-columns: 1fr 1fr;">
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/singularity-extensions.png" alt="Extension Marketplace">
-        <div class="gallery-label">Extension Marketplace — Install & Manage Plugins</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/singularity-ai.png" alt="AI Provider Settings">
-        <div class="gallery-label">API Key Management — Multi-Provider Configuration</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/singularity-settings.png" alt="Theme Settings">
-        <div class="gallery-label">Appearance — 10+ Built-In Themes</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="capabilities">
-    <h3>Key Capabilities</h3>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="cap-icon purple">🤖</div>
-        <h4>Multi-Provider AI Assistant</h4>
-        <p>Choose your AI provider — OpenAI, Anthropic, Google Gemini, xAI, DeepSeek, Moonshot Kimi, Alibaba Qwen, or Cohere. Bring your own API key with encrypted local storage and get intelligent code assistance right in the editor.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">🧩</div>
-        <h4>Extension Marketplace</h4>
-        <p>A rich ecosystem of extensions for language support, linting, formatting, profiling, and Git tooling. Install what you need with one click — from Rust Analyzer to Prettier — complete with download counts and verified publishers.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">🎨</div>
-        <h4>10+ Built-In Themes</h4>
-        <p>Choose from Dark, Light, Midnight, Nord, Solarized, Monokai, Dracula, Catppuccin, High Contrast, and more. Full appearance customization with editor settings for font, tab size, and formatting preferences.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">🔌</div>
-        <h4>MCP Server Support</h4>
-        <p>Connect to Model Context Protocol servers directly from settings. Extend your AI assistant's capabilities with external tools, data sources, and custom integrations.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">🔒</div>
-        <h4>Privacy-First Design</h4>
-        <p>Your code stays on your machine. API keys are encrypted and stored locally. Direct provider connections — no middleman, no data collection, no telemetry.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">💻</div>
-        <h4>Full Development Environment</h4>
-        <p>File explorer, integrated terminal, search, multi-tab editing, syntax highlighting, and a welcome screen to get you started. Everything you need in a native desktop application — no browser overhead.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="product-cta">
-    <h3>Ready to try Singularity?</h3>
-    <p>Download the latest release and start coding with AI assistance built right in.</p>
-    <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-      <div class="download-group">
-        <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Windows
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="download-dropdown">
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Windows-2.0.8-x64-Setup.exe">Windows x64</a>
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Windows-2.0.8-arm64-Setup.exe">Windows ARM</a>
-        </div>
-      </div>
-      <div class="download-group">
-        <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          macOS
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="download-dropdown">
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Mac-2.0.8-arm64-Installer.dmg">macOS ARM (Apple Silicon)</a>
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Mac-2.0.8-x64-Installer.dmg">macOS x64 (Intel)</a>
-        </div>
-      </div>
-      <div class="download-group">
-        <button class="btn-primary download-toggle" style="background: var(--purple); color: #fff;" onclick="toggleDropdown(this)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Linux
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="download-dropdown">
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Linux-2.0.8-amd64.deb">Linux x64</a>
-          <a href="https://github.com/CryonicSystemsLLC/Singulatiry/releases/download/v2.0.8/Singularity-Linux-2.0.8-arm64.deb">Linux ARM64</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== AXIOM ==================== -->
-<div class="product-panel" id="panel-axiom">
-  <div class="product-hero">
-    <div class="product-hero-text">
-      <span class="product-type green">Enterprise Data Analytics Platform</span>
-      <h2>Axiom</h2>
-      <p class="product-desc">An enterprise-grade operational intelligence platform for real-time analytics, knowledge graph exploration, and AI-powered predictions. Axiom transforms raw data into actionable insights — letting your team work with customers, orders, and relationships instead of database tables.</p>
-      <p class="product-tagline">Give analysts the power of data scientists. Give executives real-time operational control. Give the organization a single source of truth.</p>
-      <div class="feature-pills">
-        <span class="pill">Knowledge Graph</span>
-        <span class="pill">Churn Prediction</span>
-        <span class="pill">Anomaly Detection</span>
-        <span class="pill">Real-Time Dashboards</span>
-        <span class="pill">ML Pipeline</span>
-        <span class="pill">Self-Hosted</span>
-        <span class="pill">Multi-Domain</span>
-        <span class="pill">Data Import Wizard</span>
-      </div>
-    </div>
-    <div class="product-hero-visual">
-      <img src="software/axiom-main.png" alt="Axiom Mission Control Dashboard" class="hero-screenshot" onclick="openLightbox(this)">
-    </div>
-  </div>
-
-  <div class="screenshot-gallery">
-    <h3>📸 In Action</h3>
-    <div class="gallery-row">
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/axiom-ontology.png" alt="Ontology Explorer">
-        <div class="gallery-label">Ontology Explorer — Knowledge Graph Visualization</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/axiom-predictions.png" alt="Predictions & Alerts">
-        <div class="gallery-label">Predictions — AI-Powered Churn & Anomaly Detection</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="capabilities">
-    <h3>Key Capabilities</h3>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="cap-icon green">🌐</div>
-        <h4>Knowledge Graph</h4>
-        <p>Visualize and explore relationships across your entire data landscape. See how customers connect to orders, products, and events — revealing insights invisible to traditional analytics.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon green">🔮</div>
-        <h4>Predictive Intelligence</h4>
-        <p>Built-in machine learning models identify at-risk customers, detect revenue anomalies, and forecast trends. See churn risk scores, lifetime value, and automated alerts in real time.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon green">📈</div>
-        <h4>Mission Control Dashboard</h4>
-        <p>A real-time operational command center with KPIs, revenue trends, customer segmentation, active alerts, and top customer tracking — all updating live.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon green">⚙️</div>
-        <h4>Operational — Not Just Visual</h4>
-        <p>Unlike traditional BI tools, Axiom is write-back capable. Execute actions directly from dashboards — update statuses, trigger workflows, and drive outcomes from the data.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon green">🏠</div>
-        <h4>Self-Hosted & Vendor Neutral</h4>
-        <p>Deploy on any cloud, on-premise, or air-gapped networks. Your data never leaves your control. No vendor lock-in, no SaaS dependency — complete sovereignty.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon green">🔄</div>
-        <h4>Data Import & Streaming</h4>
-        <p>Bring data from CSV, Excel, external databases, or automated watch sources. Built-in stream monitoring and alerting keeps your analytics pipeline healthy and current.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="product-cta">
-    <h3>Ready for operational intelligence?</h3>
-    <p>Let's explore how Axiom can transform your data into competitive advantage.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
-  </div>
-</div>
-
-<!-- ==================== SEPHERIX ==================== -->
-<div class="product-panel" id="panel-sepherix">
-  <div class="product-hero">
-    <div class="product-hero-text">
-      <span class="product-type orange">Purchase Order Management System</span>
-      <h2>Sepherix</h2>
-      <p class="product-desc">A modern, enterprise-grade Purchase Order Management System that streamlines the entire procurement lifecycle. From requisition creation through multi-level approval workflows to automatic PO generation and SAP integration — Sepherix brings structure and visibility to your purchasing process.</p>
-      <p class="product-tagline">Requisition to purchase order — every step tracked, every approval documented, every dollar accounted for.</p>
-      <div class="feature-pills">
-        <span class="pill">Multi-Level Approvals</span>
-        <span class="pill">Auto PO Generation</span>
-        <span class="pill">SAP Integration</span>
-        <span class="pill">PDF Generation</span>
-        <span class="pill">File Attachments</span>
-        <span class="pill">Spend Analytics</span>
-        <span class="pill">Role-Based Access</span>
-        <span class="pill">Vendor Management</span>
-      </div>
-    </div>
-    <div class="product-hero-visual">
-      <img src="software/sepherix-main.png" alt="Sepherix Dashboard" class="hero-screenshot" onclick="openLightbox(this)">
-    </div>
-  </div>
-
-  <div class="screenshot-gallery">
-    <h3>📸 In Action</h3>
-    <div class="gallery-row">
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/sepherix-po.png" alt="Purchase Orders">
-        <div class="gallery-label">Purchase Orders — Tracking & SAP Status</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="software/sepherix-reports.png" alt="Reports & Analytics">
-        <div class="gallery-label">Reports — Spend Metrics & Approval Analytics</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="capabilities">
-    <h3>Key Capabilities</h3>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="cap-icon orange">📋</div>
-        <h4>Requisition Management</h4>
-        <p>Create detailed purchase requisitions with vendor info, line items, quantities, pricing, and file attachments. Submit for approval with full audit trail from day one.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon orange">✅</div>
-        <h4>Multi-Level Approval Workflow</h4>
-        <p>Configurable approval chains spanning Managers, General Managers, and MRO Buyers. Each level can approve, reject with comments, or route to the next approver in the chain.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon orange">⚡</div>
-        <h4>Automatic PO Generation</h4>
-        <p>When the final approver signs off, the system automatically creates the Purchase Order, generates a professional PDF, and prepares the SAP integration — zero manual steps.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon orange">🔗</div>
-        <h4>SAP ERP Integration</h4>
-        <p>Native SAP ORDERS05 IDoc generation. Approved purchase orders are automatically converted to IDoc XML and placed in the SAP pickup folder — seamless ERP connectivity.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon orange">📊</div>
-        <h4>Spend Analytics & Reporting</h4>
-        <p>Track total spend, monthly trends, vendor breakdowns, and departmental allocation. Monitor approval metrics including average approval time, pending counts, and rejection rates.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon orange">👥</div>
-        <h4>Role-Based Access Control</h4>
-        <p>Six distinct roles — Administrator, Requester, Manager, General Manager, MRO Buyer, and Viewer — each with precisely scoped permissions for security and compliance.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="product-cta">
-    <h3>Ready to streamline procurement?</h3>
-    <p>Let's discuss how Sepherix can bring control and visibility to your purchasing process.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
-  </div>
-</div>
-
-</div><!-- end page-content -->
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close">&times;</button>
-  <img src="" alt="" id="lightboxImg">
-</div>
-
 <footer>
   <div class="footer-left">
     <a href="index.html" class="logo"><img src="logo.png" alt="Cryonic Systems" class="logo-img" style="height:44px;"></a>
     <span class="footer-copy">&copy; 2026 Cryonic Systems. All rights reserved.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
     <li><a href="software.html">Software</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="stack.html">Stack</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
-
 <script>
-// Download dropdowns
-function toggleDropdown(btn) {
-  var dropdown = btn.nextElementSibling;
-  var isOpen = dropdown.classList.contains('open');
-  // Close all dropdowns first
-  document.querySelectorAll('.download-dropdown').forEach(function(d) { d.classList.remove('open'); });
-  if (!isOpen) dropdown.classList.add('open');
-}
-// Close dropdowns when clicking outside
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.download-group')) {
-    document.querySelectorAll('.download-dropdown').forEach(function(d) { d.classList.remove('open'); });
-  }
-});
-
-// Tab switching
-function switchTab(product) {
-  document.querySelectorAll('.tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
-  document.querySelectorAll('.product-panel').forEach(function(panel) { panel.classList.remove('active'); });
-  document.querySelector('.tab-btn[data-product="' + product + '"]').classList.add('active');
-  document.getElementById('panel-' + product).classList.add('active');
-  window.scrollTo({ top: document.querySelector('.product-tabs').offsetTop - 80, behavior: 'smooth' });
-}
-
-// Lightbox
-function openLightbox(img) {
-  document.getElementById('lightboxImg').src = img.src;
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-
-// Reveal on scroll
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
